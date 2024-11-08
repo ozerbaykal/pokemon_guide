@@ -29,10 +29,8 @@ searchBtn.addEventListener('click', () => {
 })
 
 searchInput.addEventListener('input', (e) => {
-    //console.log(searchInput.value)
     const searchValue = searchInput.value.toLowerCase()
     const pokemonNames = document.querySelectorAll('.poke-name')
-    //console.log(pokeName)
 
     pokemonNames.forEach((pokemonName) => {
         pokemonName.parentElement.parentElement.style.display = 'block'
@@ -53,7 +51,7 @@ const getPokemon = async (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
     const res = await fetch(url)
     const data = await res.json()
-    //console.log(data)
+
     createPokemonCard(data)
 }
 
@@ -62,9 +60,9 @@ const createPokemonCard = (pokemon) => {
     pokemonDiv.classList.add('pokemon')
 
     const pokemonId = pokemon.id.toString().padStart(3, '0')
-    //console.log(pokemonId)
+
     const pokemonType = pokemon.types[0].type.name
-    //console.log(pokemonType)
+
     const pokemonBg = bg_color[pokemonType]
     pokemonDiv.style.backgroundColor = `${pokemonBg}`
 
